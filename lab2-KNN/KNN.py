@@ -15,7 +15,6 @@ def loadDigitData(filename, maxExamples=100000):
             for i in range(1, len(a)):
                 v = float(a[i]) / 255.
                 if v > 0.:
-                    print(i, v)
                     x[i] = v
             D.append( (x,y) )
             if len(D) >= maxExamples:
@@ -36,6 +35,14 @@ def exampleDistance(x1, x2): # x1 is training text row, x2 is test text row
             dist += v2 * v2 # calculate the square of same point and sum it with distance
     return sqrt(dist) # returns distance
 
+def subsampleExampleDistance(x1, x2, D):
+    dist = 0.
+    for i, v1 in enumerate(x1[0:D]):
+        v2 = x2[i]
+        dist += (v1 - v2) * (v1 - v2)
+
+    return sqrt(dist)
+
 # returns list of K (dist, n) where n is the nth training example
 def findKNN(D, xhat, K):  # D is the training text, xhat is the test point
     allDist = []
@@ -49,8 +56,10 @@ def classifyKNN(D, knn, K = 0.000000000000000000000000000000000000000000000001):
     yhat = 0
     for (dist,n) in knn: # iterates over knn distances and point
         (x,y) = D[n] # gets point of training set by point in knn
-        yhat = yhat + y
-        # yhat = exp(-dist / K)
+        # yhat = yhat + y
+        # yhat = yhat + y*exp(-dist)
+        # yhat = yhat + exp(-dist / K)
+        yhat = yhat + exp(-dist)
 
     if yhat > 0.:
         return 1.
