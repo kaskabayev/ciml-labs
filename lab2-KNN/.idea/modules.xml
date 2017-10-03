@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../lab1-DTs-and-overfitting/.idea/lab1-DTs-and-overfitting.iml" filepath="$PROJECT_DIR$/../lab1-DTs-and-overfitting/.idea/lab1-DTs-and-overfitting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lab2-KNN.iml" filepath="$PROJECT_DIR$/.idea/lab2-KNN.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lab3-Evaluation-and-Significance/.idea/lab3-Evaluation-and-Significance.iml" filepath="$PROJECT_DIR$/../lab3-Evaluation-and-Significance/.idea/lab3-Evaluation-and-Significance.iml" />
+    </modules>
+  </component>
+</project>
