@@ -31,9 +31,9 @@ def makeOnePreRecCurve(Y, P, doHold=True, color='b-'):
         if pre > 0 and rec > 0:
             f = 2 * pre * rec / (pre + rec)
             if f > maxF: maxF = f
-        if rec > 0 and (not curve.has_key(pre) or rec > curve[pre]):
+        if rec > 0 and (pre not in curve or rec > curve[pre]):
             curve[pre] = rec
-    curve = curve.items()
+    curve = list(curve.items())
     curve = np.array(curve, dtype=[('p',np.float), ('r',np.float)])
     curve = list(np.sort(curve))
     curve.append((1,0))
@@ -55,12 +55,10 @@ def makeOnePreRecCurve(Y, P, doHold=True, color='b-'):
 
 def makeManyCurves(Y, allP):
     colors = ['b-','r-','g-','k-','m-']
-    plt.hold(False)
     legList = []
     for i in range(len(allP)):
         f = makeOnePreRecCurve(Y, allP[i], False, colors[i % 5])
         legList.append('Data ' + str(i) + ' (F=' + str(f)[0:5] + ')')
-        plt.hold(True)
     plt.legend(legList, loc=3)
     plt.show()
     
