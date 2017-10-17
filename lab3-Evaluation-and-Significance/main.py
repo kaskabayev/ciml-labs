@@ -1,5 +1,7 @@
-from eval import *
+from eval_sol import *
 
-print(Y, allP[0], allP[1], allP[2], sep='\n')
+# print(Y, allP[0], allP[1], allP[2], sep='\n')
 
-makeManyCurves(Y, allP)
+# makeManyCurves(Y, allP)
+
+ttest(Y, allP[1], allP[0])
