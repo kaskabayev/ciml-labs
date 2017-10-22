@@ -99,6 +99,8 @@ def ttest(Y, P0, P1, restrictTo=None):
     elif t >= 1.64: sig = "significant at 95% level"
     elif t >= 1.28: sig = "significant at 90% level"
 
+    print(t, sig)
+
     return t,sig
 
 def loadFile(fname):
