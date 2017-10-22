@@ -83,17 +83,17 @@ def ttest(Y, P0, P1, restrictTo=None):
     mu_b = np.mean(b)
 
     # center the errors
-    ahat = 0   # TODO
-    bhat = 0   # TODO
+    ahat = a - mu_a   # TODO: calculate centered error of a
+    bhat = b - mu_b   # TODO: calculate centered error of b
 
     # compute the denominator
-    diff = 0   # TODO
+    diff = np.dot(ahat - bhat, ahat - bhat)   # TODO: calculate denominator of t-statistic, use numpy.dot to multiply vectors
 
     # make sure it's not infinite
     diff = min(diff, 1e10)
 
     # compute the t-statistic
-    t = 0 # TODO
+    t = (mu_a - mu_b) * sqrt((N**2 - N) / diff) # TODO: formula of t-statistics using diff as denominator
 
     # look up significance
     sig = "not significant at 90% level"
