@@ -112,5 +112,3 @@ def loadFile(fname):
 
 Y = loadFile('prediction.truth')
 allP = [loadFile('prediction.top' + str(i)) for i in range(1,4)]
-
-    

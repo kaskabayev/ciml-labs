@@ -49,8 +49,3 @@ Task D:
         => 95% significance: can be shown when Y-axis (t-value) is >=1.64 and <=1.96, find the point and get X-axis (amount of data)
         => 99.5% significance: can be shown when Y-axis (t-value) is >=2.58, find the point and get X-axis (amount of data)
 '''
-
-'''
-Task E:
-    
-'''
