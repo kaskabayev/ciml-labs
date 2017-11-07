@@ -9,7 +9,7 @@ class OAA:
 
     def train(self, X, Y):
         for k in range(self.K):
-            print 'training classifier for', k, 'versus rest'
+            print('training classifier for', k, 'versus rest')
             Yk = 2 * (Y == k) - 1   # +1 if it's k, -1 if it's not k
             self.f[k].fit(X, Yk)
 
@@ -44,7 +44,7 @@ class AllPairs:
     def train(self, X, Y):
         for i in range(self.K):
             for j in range(i):
-                print 'training classifier for', i, 'versus', j
+                print('training classifier for', i, 'versus', j)
                 # make i,j mean "class i, not class j"
                 Xij = None # TODO
                 Yij = None # TODO
