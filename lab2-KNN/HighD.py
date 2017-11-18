@@ -1,7 +1,9 @@
 from math import *
 import random
+from random import randint
 from numpy import *
 import matplotlib.pyplot as plt
+from KNN import subsampleExampleDistance
 
 waitForEnter=False
 
@@ -20,10 +22,13 @@ def computeExampleDistance(x1, x2):
 def computeDistances(data):
     N = len(data)
     D = len(data[0])
+    DP = randint(1, D)
+
     dist = []
     for n in range(N):
         for m in range(n):
             dist.append( computeExampleDistance(data[n],data[m]) / sqrt(D))
+            # dist.append( subsampleExampleDistance(data[n],data[m], DP) / sqrt(DP))
     return dist
 
 N    = 200                   # number of examples
