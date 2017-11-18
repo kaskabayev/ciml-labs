@@ -9,14 +9,14 @@ class OAA:
 
     def train(self, X, Y):
         for k in range(self.K):
-            print 'training classifier for', k, 'versus rest'
+            print('training classifier for', k, 'versus rest')
             Yk = 2 * (Y == k) - 1   # +1 if it's k, -1 if it's not k
             self.f[k].fit(X, Yk)
 
     def predict(self, X, useZeroOne=False):
         vote = zeros((self.K,))
         for k in range(self.K):
-            probs = self.f[k].predict_proba(X)
+            probs = self.f[k].predict_proba(X.reshape(1, -1))
             if useZeroOne:
                 vote[k] += 1 if probs[0,1] > 0.5 else 0
             else:
@@ -44,7 +44,7 @@ class AllPairs:
     def train(self, X, Y):
         for i in range(self.K):
             for j in range(i):
-                print 'training classifier for', i, 'versus', j
+                print('training classifier for', i, 'versus', j)
                 # make i,j mean "class i, not class j"
                 Xij = None # TODO
                 Yij = None # TODO

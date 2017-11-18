@@ -5,7 +5,7 @@ import pylab
 from numpy import *
 
 def raiseNotDefined():
-  print "Method not implemented: %s" % inspect.stack()[1][3]    
+  print("Method not implemented: %s" % inspect.stack()[1][3])
   sys.exit(1)
 
 def permute(a):
@@ -57,12 +57,12 @@ def mode(seq):
   else:
     cnt = {}
     for item in seq:
-      if cnt.has_key(item):
+      if item in cnt:
         cnt[item] += 1
       else:
         cnt[item] = 1
     maxItem = seq[0]
-    for item,c in cnt.iteritems():
+    for item,c in cnt.items():
       if c > cnt[maxItem]:
         maxItem = item
     return maxItem
@@ -294,9 +294,9 @@ def showTree(dt, dictionary):
             sys.stdout.write(s)
             sys.stdout.write('-> ')
         if thresh[node] == -2: # leaf
-            print 'class %d\t(%d for class 0, %d for class 1)' % (argmax(value[node]), value[node][0,0], value[node][0,1])
+            print('class %d\t(%d for class 0, %d for class 1)' % (argmax(value[node]), value[node][0,0], value[node][0,1]))
         else: # internal node
-            print '%s?' % feats[node]
+            print('%s?' % feats[node])
             showTree_(left[ node], 'N', depth+1)
             showTree_(right[node], 'Y', depth+1)
 
