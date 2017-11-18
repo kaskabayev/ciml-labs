@@ -54,3 +54,7 @@ print ("Time used: %.2gs" % (end-start))
 
 print(WineData.labels[17])
 print(util.showTree(h.f[17], WineData.words))
+
+'''
+Task C
+'''
