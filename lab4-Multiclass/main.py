@@ -42,8 +42,7 @@ Task A:
 '''
 
 '''
-Task B:
-    
+Task B
 '''
 start = time.clock()
 h = multiclass.OAA(20, lambda: DecisionTreeClassifier(max_depth=3))
