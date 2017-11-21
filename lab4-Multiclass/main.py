@@ -47,7 +47,7 @@ Task B
 start = time.clock()
 h = multiclass.OAA(20, lambda: DecisionTreeClassifier(max_depth=3))
 h.train(WineData.X, WineData.Y)
-P = h.predictAll(WineData.Xte)
+P1 = h.predictAll(WineData.Xte)
 end = time.clock()
 
 print ("Time used: %.2gs" % (end-start))
@@ -58,3 +58,5 @@ print(util.showTree(h.f[17], WineData.words))
 '''
 Task C
 '''
+P2 = h.predictAll(WineData.Xte, useZeroOne=True)
+print(mean(P1 == P2))
